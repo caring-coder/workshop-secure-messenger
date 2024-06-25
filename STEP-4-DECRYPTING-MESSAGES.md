@@ -45,6 +45,8 @@ function Message({
     doDecryption();
   }, [message, privateKey]);
 
+  if (!canDecrypt) return false;
+
   return (
     <div>
       <strong>{decryptedSender}:</strong> {decryptedMessage}

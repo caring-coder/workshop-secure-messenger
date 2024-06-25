@@ -23,11 +23,18 @@ We're going to use the [SubtleCrypto: generateKey() method][mdn-web-crypto-gener
   }
 ```
 
+**👉 ACTION**: Add the state variables and setters near the top of the component:
+
+```ts
+  const [publicKey, setPublicKey] = useState<CryptoKey | null>();
+  const [privateKey, setPrivateKey] = useState<CryptoKey | null>();
+```
+
 **👉 ACTION**: Now write the code inside the `Home()` component to:
 
 1. Generate the Public/Private Keys;
 2. Save the keys to Indexed DB; and
-3. Store the keys in state (`useState`, noting both keys will be of type `CryptoKey`).
+3. Store the keys in state (`useState`).
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to generate the keys in the `@/lib/crypto.ts` file, and the code to save the keys to Indexed DB in the `@/lib/idb.ts` file. Feel free to import this into `page.tsx` and use as required.
 

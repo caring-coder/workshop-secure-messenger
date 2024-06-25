@@ -2,7 +2,7 @@
 
 This repo contains the guide and code for [Ben Dechrai][ben-twitter]'s workshop, "Write Your Own Secure Messenger".
 
-> Are you not in the workshop? If you are reasonably familiar with [Next.js][nextjs] and the [Web Crypto API][mdn-web-crypto] (or are comfortable doing soe research), this workshop is designed to be able to be completed just by following this guide.
+> Are you not in the workshop? If you are reasonably familiar with [Next.js][nextjs] and the [Web Crypto API][mdn-web-crypto] (or are comfortable doing some research), this workshop is designed to be able to be completed just by following this guide.
 
 ## Table of Contents
 

@@ -32,8 +32,8 @@ We're going to use the [SubtleCrypto: generateKey() method][mdn-web-crypto-gener
 
 **👉 ACTION**: Now write the code inside the `Home()` component to:
 
-1. Generate the Public/Private Keys;
-2. Save the keys to Indexed DB; and
+1. Generate the Public/Private Keys (see the [web crypto generatekey docs][mdn-web-crypto-generatekey]);
+2. Save the keys to Indexed DB (see the [indexed db docs][mdn-indexed-db]); and
 3. Store the keys in state (`useState`).
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to generate the keys in the `@/lib/crypto.ts` file, and the code to save the keys to Indexed DB in the `@/lib/idb.ts` file. Feel free to import this into `page.tsx` and use as required.
@@ -70,7 +70,7 @@ If you refresh your web application again though, you'll be prompted to generate
     doLoadKeypairs();
 ```
 
-**👉 ACTION**: Now write the `loadKeypairs()` method to retrieve them from Indexed DB.
+**👉 ACTION**: Now write the `loadKeypairs()` method to retrieve them from Indexed DB. (See the [indexed db docs][mdn-indexed-db].)
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to load the keys in the `@/lib/idb.ts` file. Feel free to import this into `page.tsx` and use as required.
 
@@ -91,4 +91,5 @@ You've reached the end of step 2 and should have a keypair for your current user
 _[🔙 Back to step 1: Setting up](STEP-1-SETTING-UP.md)_
 
 [ben-twitter]: https://twitter.com/bendechrai
+[mdn-indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [mdn-web-crypto-generatekey]: https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/generateKey

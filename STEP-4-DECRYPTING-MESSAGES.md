@@ -61,7 +61,7 @@ function Message({
 </div>
 ```
 
-**👉 ACTION**: Now write the `decryptMessage()` method to decrypt the sender name and message.
+**👉 ACTION**: Now write the `decryptMessage()` method to decrypt the sender name and message. (See [web crypto decrypt docs][mdn-web-crypto-decrypt].)
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to encrypt something with a given public key in the `@/lib/crypto.ts` file. Feel free to import this into `page.tsx` and use as required.
 
@@ -79,6 +79,7 @@ You've reached the end of step 4 and should have messages being decrypted before
 
 [▶️ STEP 5: Storing Messages in a Database](./STEP-5-STORING-IN-DATABASE.md)
 
-\_[🔙 Back to step 3: Encrypting Messages](./STEP-3-DECRYPTING-MESSAGES.md)
+_[🔙 Back to step 3: Encrypting Messages](./STEP-3-DECRYPTING-MESSAGES.md)_
 
 [ben-twitter]: https://twitter.com/bendechrai
+[mdn-web-crypto-decrypt]: https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/decrypt

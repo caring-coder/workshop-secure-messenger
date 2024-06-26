@@ -6,7 +6,7 @@ This repo contains the guide and code for [Ben Dechrai][ben-twitter]'s workshop,
 
 Open the app in a different browser, or a private browser session. This will not work in another tab, as that tab will share the Indexed DB data.
 
-> **💡 TIP**: You might need to open access to your Gitpod port to do so. Make sure it's a different browser 
+> **💡 TIP**: If you're having problems connecting from another browser, double check you have the app running open to the public, as performed in the (Setting Up)[./STEP-1-SETTING-UP.md] section.
 
 **🧪 CHECKPOINT**: Note that both users can use the chat, but they only see their own chats.
 
@@ -31,7 +31,12 @@ In order to encrypt for each recipient, the recipients will need to share their 
     await saveKey(publicKey);
 ```
 
-**👉 ACTION**: Now write the `saveKey()` method to insert the private key into the keys table of the database.
+**👉 ACTION**: Now write the `saveKey()` method to insert the public key into the keys table of the database. (See the [Supabase insert docs][supabase-insert].)
+
+> **💡 TIP**: You'll need to export the public key to a JWK format that can be stored in the database using the following in your `saveKey()` method.
+> ```ts
+> await window.crypto.subtle.exportKey("jwk", publicKey);
+> ```
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to save these to the database in the `@/lib/supabase.ts` file. Feel free to import this into `chat.tsx` and use as required.
 
@@ -47,19 +52,33 @@ In order to encrypt for each recipient, the recipients will need to share their 
 
 Now we just need to save the message to the database for every recipient.
 
-**👉 ACTION**: Use the `loadKeys()` method from `supabase.ts` to retrieve all the public keys in the database, and then loop through each one in `chat.tsx`'s `sendMessage()` handler:
+**👉 ACTION**: Update the `sendMessage()` handler in `chat.ts` to loop through all the public keys and encrypt and save a message for each:
 
 ```ts
   const sendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Do this bit once for each recipient {
+    for (const publicKey of await loadKeys()) {
         const encryptedSender = await encryptMessage(sender, publicKey);
         const encryptedMessage = await encryptMessage(message, publicKey);
         await saveMessage(encryptedSender, encryptedMessage);
-    // }
+    }
     setMessage("");
   };
 ```
+
+**👉 ACTION**: Now write the `loadKeys()` method to get all the public keys from the keys table of the database. (See the [Supabase select docs][supabase-select].)
+
+> **💡 TIP**: You'll need to import the public key from its JWK format so it can be used by the Web Crypto API.
+> ```ts
+> // For each key loaded from supabase
+> const jwk = typeof key === "string" ? JSON.parse(key) : key;
+> keys.push( await window.crypto.subtle.importKey(
+>   "jwk", jwk, { name: "RSA-OAEP", hash: "SHA-256" }, true, ["encrypt"] )
+> );
+> ```
+
+> **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to save these to the database in the `@/lib/supabase.ts` file. Feel free to import this into `chat.tsx` and use as required.
+
 
 If you want to, you could clean up the call to the `<Chat>` component, and the component API, to no longer require the user's publicKey, as it's not being used anymore. Leaving it as is won't stop the application from functioning though.
 
@@ -75,8 +94,8 @@ If you only deleted the Indexed DB entries in one of the browsers that you've be
 
 ---
 
-[▶️ STEP 8: Encryption for Everyone](./STEP-8-ENCRYPTION-FOR-EVERYONE.md)
-
-\_[🔙 Back to step 3: Encrypting Messages](/STEP-6-RETRIEVING-FROM-DATABASE.md)
+_[🔙 Back to step 6: Retrieveing Messages from the Database](./STEP-6-RETRIEVING-FROM-DATABASE.md)_
 
 [ben-twitter]: https://twitter.com/bendechrai
+[supabase-insert]: https://supabase.com/docs/reference/javascript/insert
+[supabase-select]: https://supabase.com/docs/reference/javascript/select

@@ -44,7 +44,7 @@ Now that `<Chat>` has the public and private keys, we can encrypt the message. F
   };
 ```
 
-**👉 ACTION**: Now write the `encryptMessage()` method to retrieve them from Indexed DB.
+**👉 ACTION**: Now write the `encryptMessage()` method to retrieve them from Indexed DB. (See [web crypto encrypt docs][mdn-web-crypto-encrypt].)
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to encrypt something with a given public key in the `@/lib/crypto.ts` file. Feel free to import this into `page.tsx` and use as required.
 
@@ -62,6 +62,7 @@ You've reached the end of step 3 and should have messages being encrypted before
 
 [▶️ STEP 4: Decrypting Messages](./STEP-4-DECRYPTING-MESSAGES.md)
 
-_[🔙 Back to step 2: Generating Keys](./STEP-2-GENERATING-KEYS)
+_[🔙 Back to step 2: Generating Keys](./STEP-2-GENERATING-KEYS)_
 
 [ben-twitter]: https://twitter.com/bendechrai
+[mdn-web-crypto-encrypt]: https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt

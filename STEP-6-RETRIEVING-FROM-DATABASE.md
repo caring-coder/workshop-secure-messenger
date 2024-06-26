@@ -44,7 +44,7 @@ This repo contains the guide and code for [Ben Dechrai][ben-twitter]'s workshop,
   }, []);
 ```
 
-**👉 ACTION**: Now write the `loadMessages()` and `subscribeToMessages()` methods to retrieve messages, and then subscribe to new messages in the database in real-time.
+**👉 ACTION**: Now write the `loadMessages()` and `subscribeToMessages()` methods to retrieve messages, and then subscribe to new messages in the database in real-time. (See the [Supabase select docs][supabase-select] and the [Supabase subscribe docs][supabase-subscribe].)
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to read from database in the `@/lib/supabase.ts` file. Feel free to import this into `chat.tsx` and use as required.
 
@@ -62,6 +62,8 @@ You've reached the end of step 6 and should have a one-person chat working again
 
 [▶️ STEP 7: Making the Chat Multi-User](./STEP-7-MAKING-CHAT-MULTI-USER.md)
 
-\_[🔙 Back to step 3: Encrypting Messages](./STEP-5-STORING-IN-DATABASE.md)
+_[🔙 Back to step 5: Storing Messages in a Database](./STEP-5-STORING-IN-DATABASE.md)_
 
 [ben-twitter]: https://twitter.com/bendechrai
+[supabase-select]: https://supabase.com/docs/reference/javascript/select
+[supabase-subscribe]: https://supabase.com/docs/reference/javascript/subscribe

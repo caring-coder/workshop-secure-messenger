@@ -52,7 +52,7 @@ const sendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
 };
 ```
 
-**👉 ACTION**: Now write the `saveMessage()` method to save the name and message to the database.
+**👉 ACTION**: Now write the `saveMessage()` method to save the name and message to the database. (See the [Supabase insert docs][supabase-insert].)
 
 > **💡 TIP**: If you don't want to research and write this from scratch, you can find the code required to save these to the database in the `@/lib/supabase.ts` file. Feel free to import this into `chat.tsx` and use as required.
 
@@ -70,6 +70,7 @@ You've reached the end of step 5 and should have encrypted messages being saved 
 
 [▶️ STEP 6: Retrieveing Messages from the Database](./STEP-6-RETRIEVING-FROM-DATABASE.md)
 
-\_[🔙 Back to step 3: Encrypting Messages](./STEP-4-DECRYPTING-MESSAGES.md)
+_[🔙 Back to step 4: Decrypting Messages](./STEP-4-DECRYPTING-MESSAGES.md)_
 
 [ben-twitter]: https://twitter.com/bendechrai
+[supabase-insert]: https://supabase.com/docs/reference/javascript/insert

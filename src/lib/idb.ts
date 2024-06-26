@@ -1,5 +1,5 @@
 "use client";
-import { openDB, IDBPDatabase } from "idb";
+import { openDB, type IDBPDatabase } from "idb";
 import { cryptoKeyToJwk, jwkToCryptoKey } from "./crypto";
 
 let dbPromise: Promise<IDBPDatabase>;

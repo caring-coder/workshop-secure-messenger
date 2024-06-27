@@ -23,7 +23,7 @@ We're going to use the [SubtleCrypto: generateKey() method][mdn-web-crypto-gener
   }
 ```
 
-**👉 ACTION**: Add the state variables and setters near the top of the component:
+**👉 ACTION**: Add the state variables and setters near the top of the Page component:
 
 ```ts
   const [publicKey, setPublicKey] = useState<CryptoKey | null>();
